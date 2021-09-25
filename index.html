@@ -49,9 +49,17 @@
                 '2. Наполи',
                 '3. Милан',
             ];
-            return (
+            const styleColor = [
+                'red',
+                'blue',
+                'yello',
+                'green',
+                'violet'
+            ];
+            let randomColor = styleColor[Math.floor(Math.random()*styleColor.length )]
+             return (
                 <List 
-                  color = {"red"}
+                  color = {randomColor }
                   items = {list}
                 />
             )
