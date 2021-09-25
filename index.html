@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="app-root"></div>
+    <script type="text/babel">
+
+        function ListItem({color, children, handle}){
+            return (
+                <li
+                onClick = {handle}
+                style = {{color}}
+                >
+                 {children}   
+                </li>
+            )
+            
+        }
+        function List({color,items}) {
+            const ListItemClic = (evt) => {
+                console.log(evt.target.textContent + '-Chempion');
+            }
+            return (
+                <ul> 
+                    {items.map(item  => (
+                        <ListItem 
+                           color={color}
+                           handle={ListItemClic}
+                        >
+                            {item}
+                         </ListItem>   
+                    ))}
+                    
+                </ul>
+            )
+            
+        }
+        function App(){
+            const list = [
+                '1. Интер',
+                '2. Наполи',
+                '3. Милан',
+            ];
+            return (
+                <List 
+                  color = {"red"}
+                  items = {list}
+                />
+            )
+            
+          }
+        ReactDOM.render(
+            <App />,
+            document.getElementById('app-root')
+        )
+    </script>
+    
+</body>
+</html>
+    
+</body>
+</html>
